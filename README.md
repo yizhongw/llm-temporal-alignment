@@ -1,6 +1,7 @@
 # llm-temporal-alignment
 
 This repo contains the code for our paper [llm-temporal-alignment](https://arxiv.org).
+
 We are currently working on reorganizing our code base for public release alongside [our dataset](https://huggingface.co/datasets). Please check back in soon!
 
 This work investigates the temporal chaos of pretrained LMs and explores various methods to align their internal knowledge to a target time, which we call “temporal alignment.” These methods all utilize [our Time-AwareQA (TAQA) dataset](https://huggingface.co/datasets). Based on this dataset, we showed that pretrained LMs (e.g., LLaMa2), despite having a recent pretraining cutoff (e.g., 2022), mostly answer questions using earlier knowledge (e.g., in 2019).
