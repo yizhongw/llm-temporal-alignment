@@ -1,6 +1,6 @@
-# llm-temporal-alignment
+# Set the Clock: Temporal Alignment of Pretrained Language Models
 
-This repo contains the code for our paper [llm-temporal-alignment](https://arxiv.org).
+This repo contains the code for our paper [Set the Clock: Temporal Alignment of Pretrained Language Models](https://arxiv.org).
 
 We are currently working on reorganizing our code base for public release alongside [our dataset](https://huggingface.co/datasets). Please check back in soon!
 
