@@ -21,16 +21,33 @@ Language models (LMs) are trained on web text originating from many points in ti
 
 Previous studies have found that the temporal misalignment between LM pretraining and deployment has a significant impact on models’ performance, which motivates many studies on making model’s knowledge up-to-date.
 
-## How was the TAQA dataset built?
-
 ## How temporal alignment works?
+Based on our TAQA dataset, we can evaluate existing LMs' temporal alignment status by asking them time-sensitive questions and use each year's ground truth to measure the LM's F1 score over time, as shown below.
 
+<p align="center">
+<img src="figures/teaser_edited.png" alt="TAQA Data Construction Pipeline">
+</p>
+
+We propose a set of methods to temporally align LMs either to a target year or dynamically to recent years. Our methods include:
+- **Time-aware Prompting**: We use prompts with time-sensitive few-shot examples and target year mention to guide the model to answer questions with recent knowledge.
+- **Target-year Finetuning**: We finetune LMs on a subset of time-sensitive QA examples to align their knowledge to a target year, selected via the to-be-finetuned LM's answer correctness.
+- **Temporal-adaptive Finetuning**: We finetune LMs on a set of time-sensitive QA examples to align their knowledge to recent years, with the specific year dynamically chosen based on the to-be-finetuned LM's internal knowledge.
+
+## How was the TAQA dataset built?
+Our TAQA dataset is automatically built through prompting GPT-4 based on tables with temporal information on Wikipedia pages. In detail, we parse the temporal mentions on Wikipedia tables, treating them as temporal qualifiers, and use other columns' name and corresponding values as prompts to ask GPT-4 for generating time-sensitive questions. Our data construction process ensures that the questions' answers will change multiple times over recent years (post 2000), which is a crucial property for evaluating temporal alignment in language models. Our data construction pipeline is shown below.
+
+<p align="center">
+<img src="figures/data_construction.png" alt="TAQA Data Construction Pipeline">
+</p>
+
+Our TAQA dataset is now available on Hugging Face Datasets. Check it out [here](https://huggingface.co/datasets/ROIM/temporal-alignment-qa).
 
 # Setup
 
 # Evaluation
 
 # Licensing
+This codebase and our TAQA dataset are released under Apache 2.0 License, as given in [LICENSE](https://github.com/yizhongw/llm-temporal-alignment/blob/main/LICENSE).
 
 # Citation
 If you use our code or TAQA dataset, please cite our work:
